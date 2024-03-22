@@ -93,6 +93,17 @@ export const findPerson  =  async (id: string) => {
 }
 
 
+export const findPersonPhotos = async (name: string, take=5) => {
+    return prisma.photo.findMany({
+        where: {
+            person: {
+                name
+            }
+        },
+        take
+    })
+}
+
 export const getAllVisitors  =  async () => {
     return prisma.photo.findMany({
         where: {},
