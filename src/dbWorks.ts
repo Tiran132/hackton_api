@@ -92,6 +92,17 @@ export const findPerson  =  async (id: string) => {
     })
 }
 
+
+export const getAllVisitors  =  async () => {
+    return prisma.photo.findMany({
+        where: {},
+        distinct: ["personId"],
+        include: {
+            person: true
+        }
+    })
+}
+
 export const addPhoto = async (id: string, fileName: string) => {
     const person = await findPerson(id)
 

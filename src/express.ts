@@ -2,7 +2,7 @@ import express, { Request, Response } from 'express'
 import * as path from 'path';
 import * as fs from 'fs'
 import fileUpload from "express-fileupload"
-import { addPhoto, getPersonLast_Photo, getPersonLast_Photo1 } from './dbWorks';
+import { addPhoto, getAllVisitors, getPersonLast_Photo, getPersonLast_Photo1 } from './dbWorks';
 
 let app = express()
 app.use(express.json())
@@ -24,8 +24,12 @@ export const init = async () => {
     })
 
 
-    app.post('/notification', async (req, res) => {
-        // return res.
+    app.get('/all_detected_users', async (req, res) => {
+        const people = await getAllVisitors();
+
+        res.json({
+            people
+        });
     })
 
     app.post('/upload', async function(req, res) {
