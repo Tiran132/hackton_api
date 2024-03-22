@@ -2,10 +2,12 @@ import express, { Request, Response } from 'express'
 import * as path from 'path';
 import * as fs from 'fs'
 import fileUpload from "express-fileupload"
+import cors from 'cors';
 import { addPhoto, findPersonPhotos, getAllVisitors, getPersonLast_Photo, getPersonLast_Photo1 } from './dbWorks';
 
 let app = express()
 app.use(express.json())
+app.use(cors());
 app.use(express.static('public'))
 app.use(express.static('files'))
 app.use(fileUpload());
@@ -28,12 +30,13 @@ export const init = async () => {
     app.get('/user_photo', async (req, res) => {
         const name = req.query.name
 
+        console.log(name)
+
         if (!name) return res.send(401);
 
         const photos = await findPersonPhotos(name.toString());
 
         
-
         res.json({
             photos: photos.map(p => static_url + p.fileName)
         });

@@ -127,8 +127,8 @@ export const addPhoto = async (id: string, fileName: string) => {
     })
 }
 
-const people = [
-    "Batomunkuev Pavel Maksimovich","Bystrushkin Evgenij Mihajlovich","Gavrilenko Mariya","Elyoskin Egor Evgenevich","Ershov Grigorij Arkadevich","Ivanenko Dmitrij Dmitrievich","Ivanov Aleksandr Aleksandrovich","Karataev Vecheslav","Kernoz Igor Sergeevich","Kozlova Anastasiya Genadevna","Korovkin Nikita","Kuznecova Polina Ivanovna","Kupriyanova Kristina Sergeevna","Ledengskaya Milana","Litvinenko Anastasiya Sergeevna","Matyushina Tatyana Sergeevna","Mitin Kirill Ivanovich","Myasnikov Lev Sergeevich","Nazarova YUliya Andreevna","Parhomenko Bogdan Borisovich","Pileckij Mihail Andreevich","Pochebyt Valeriya Evgenevna","Sidorov Vladislav Vladimirovich","Fomin Ilya Sergeevich","CHubarova Ekaterina","SHumakov Sergej","YAblonskij YAn Vitalevich","YArlykova YUliya","SHelupanov Aleksandr Aleksandrovich","undefied","Orlova Olga Aleksandrovna","Sulaev Evgenij Viktorovich","Efremov Aleksej YUrevich","Kolesov Ilya Borisovich"
+const people = [ 
+    "Батомункуев Павел Максимович","Быструшкин Евгений Михайлович","Гавриленко Мария","Елёскин Егор Евгеньевич","Ершов Григорий Аркадьевич","Иваненко Дмитрий Дмитриевич","Иванов Александр Александрович","Каратаев Вячеслав","Керноз Игорь Сергеевич","Козлова Анастасия Геннадиевна","Коровкин Никита","Кузнецова Полина Ивановна","Куприянова Кристина Сергеевна","Леденгская Милана","Литвиненко Анастасия Сергеевна","Матюшина Татьяна Сергеевна","Митин Кирилл Иванович","Мясников Лев Сергеевич","Назарова Юлия Андреевна","Пархоменко Богдан Борисович","Пилецкий Михаил Андреевич","Почебыт Валерия Евгеньевна","Сидоров Владислав Владимирович","Фомин Илья Сергеевич","Чубарова Екатерина","Шумаков Сергей","Яблонский Ян Витальевич","Ярлыкова Юлия","Шелупанов Александр Александрович","undefied","Орлова Ольга Александровна","Сулаев Евгений Викторович","Ефремов Алексей Юрьевич","Колесов Илья Борисович" 
 ]
 
 export const fillPeople = async () => {
@@ -143,6 +143,7 @@ export const fillPeople = async () => {
         console.log(res)
     }
 }
+// fillPeople()
 
 // export const createPaymentDoc = async (uuid: string, chat_id: string, geo: string, product: prdouctTime, price: number) => {
 //     const expire_date = new Date(Date.now() + pricesTimedelta[product])
