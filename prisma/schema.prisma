@@ -1,0 +1,32 @@
+generator client {
+    provider      = "prisma-client-js"
+    binaryTargets = ["native", "linux-musl"]
+}
+
+datasource db {
+    provider = "sqlite"
+    url      = "file:./dev.db"
+}
+
+model Person {
+    id         Int                 @id @default(autoincrement())
+    dataset_id String              @unique
+    name       String
+    photos     Photo[]
+    events     EventRegistration[]
+}
+
+model Photo {
+    id         Int       @id @default(autoincrement())
+    person     Person    @relation(fields: [personId], references: [id])
+    personId   Int
+    fileName   String
+    created_at DateTime @default(now())
+}
+
+model EventRegistration {
+    id       Int    @id @default(autoincrement())
+    person   Person @relation(fields: [personId], references: [id])
+    personId Int
+    event_id Int
+}
