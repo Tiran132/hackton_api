@@ -11,15 +11,15 @@ app.use(cors());
 app.use(express.static('public'))
 app.use(express.static('files'))
 app.use(fileUpload());
-  
+  console.log("v1")
 app.use('/static', express.static(__dirname + '/static'));
 // app.use('/static', express.static('public'))
 // app.use('/static', express.static(path.join(__dirname, 'public')))
 
-const static_url = "http://localhost:5001/static/"
+const static_url = "http://45.142.122.126:5055/static/"
 
 export const init = async () => {
-    const port = 5001
+    const port = 5055
 
     app.listen(port, () => console.log(`🚀 Server running on port ${port}`))
 
@@ -53,13 +53,16 @@ export const init = async () => {
     app.post('/upload', async function(req, res) {
         let sampleFile;
         let uploadPath;
-      
+        console.log(req.headers)
+        
+        console.log(req.files)
         if (!req.files || Object.keys(req.files).length === 0) {
           res.status(400).send('No files were uploaded.');
           return;
         }
             sampleFile = req.files.form_field_name;
             const ids: string[] = req.query.uids?.toString().split(",") || [];
+            console.log("upload:", sampleFile, ids)
             
             let isAddedPhoto = false
 
